@@ -1,0 +1,7 @@
+= Channel Closures
+
+== Overview of Closures
+== Handling Mutual Close
+== Handling Local Unilateral Close
+== Handling Remote Unilateral Close
+== Handling Revoked Close

@@ -1,0 +1,21 @@
+= Connecting to a Node
+
+Goal of this chapter is to enable an outbound connection to another node from code. This will maintain the connection and using the ping/pong protocol and perform a proper handshake using the `init` message.
+
+== Why?
+
+- confidentiality, integrity, authenticity
+- performs authentication to known node identities
+- connector remains blind until connection is established
+- efficient cryptographic scheme
+- maintains forward secrecy
+
+== Overview of Connecting Process
+
+== NoiseXK Code-by-Numbers
+
+== Introduction to Peer Messages
+
+== Init Message
+
+== Ping Pong Protocol

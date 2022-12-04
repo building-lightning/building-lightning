@@ -1,0 +1,16 @@
+= Gossip
+
+== Overview of Gossip
+
+== Performing Initial Sync
+=== `channel_announcement`
+=== `channel_update`
+=== `node_update`
+=== `query_channel_range`
+=== `reply_channel_range`
+=== `query_short_channel_ids`
+=== `reply_short_channel_ids_end`
+
+== Channel Graph
+=== Storage
+=== Basic Routing

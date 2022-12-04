@@ -1,0 +1,18 @@
+= Channel Opening
+
+== Overview of Channels
+
+== Overview of the Opening Process
+
+== Interacting with a Wallet
+
+== Code By Numbers
+=== Sending `open_channel`
+=== Validating `accept_channel`
+=== Sending `funding_created`
+=== Validating `funding_signed`
+=== Broadcasting the Funding Transaction
+=== Waiting for Funding Depth
+=== Sending `channel_ready`
+=== Validating `channel_ready`
+=== Handling Disconnects

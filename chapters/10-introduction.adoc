@@ -1,0 +1,16 @@
+= Introduction
+
+== Goals
+
+== General Structure of Book
+
+- hierarchical state machines
+- "paint by numbers" approach to state transitions and subroutines
+
+== High Level Lightning
+
+- Layer two => define this
+- Network of computers speaking the same language 
+- Channels created by double-spending 
+- Trustless by dispute resolution falling back onto Bitcoin
+

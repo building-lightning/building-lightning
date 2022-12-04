@@ -1,0 +1,12 @@
+= Introduction to the Project
+
+== Intro to TypeScript
+
+- TypeScript reason (flexible language, type support, "single threaded")
+- Basics of TypeScript (primitives, classes, interfaces, properties, methods, functions, async/await promises)
+- 
+
+== Getting things Running
+
+== Our First Task
+
