@@ -1,12 +1,35 @@
 = Introduction to the Project
 
+== Introduction to Polar
+
 == Intro to TypeScript
 
 - TypeScript reason (flexible language, type support, "single threaded")
-- Basics of TypeScript (primitives, classes, interfaces, properties, methods, functions, async/await promises)
-- 
+- Basics of TypeScript (primitives, classes, interfaces, properties, methods, functions, async/await promises) 
 
 == Getting things Running
 
-== Our First Task
+- NVM installation
+- VS Code setup
+- Code forks
+- Installation
+- Running tests
 
+== First Coding Task: Implementing a Buffer/Stream Reader
+
+- Introduction to reading bits and bytes (endians, etc)
+- Distinction between Streams and Buffers
+- Implement 
+    - read byte
+    - read u16
+    - read u32
+    - read u64
+
+== BitField
+
+- Implementing a bitfield
+
+== TLVs
+
+- Introduction to TLVs
+- Implement TLV reader
