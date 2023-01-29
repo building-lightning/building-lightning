@@ -12,10 +12,33 @@ Goal of this chapter is to enable an outbound connection to another node from co
 
 == Overview of Connecting Process
 
-== NoiseXK Code-by-Numbers
+== NoiseXK
+
+== `Peer`  creation
+
+- contains a noise socket
+- encapsulates information obtained by the peer
+- captures the initialization and feature negotiation
 
 == Introduction to Peer Messages
 
+- type + parsable length
+
 == Init Message
 
-== Ping Pong Protocol
+
+- Implementing the `Features` `BitField`
+- Implementing `InitMessage.fromBuffer()`
+- Implementing `InitMessage.toBuffer()`
+
+== Introduction to Eventing 
+
+== 
+
+== Implementing the Ping Pong Protocol
+
+-
+- implementing the `ping` message
+- implementing the `pong` message
+
+-- introduction to state machines
