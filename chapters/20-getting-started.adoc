@@ -33,3 +33,15 @@
 
 - Introduction to TLVs
 - Implement TLV reader
+
+== Introduction to Peer Messages
+
+- type + parsable length
+- Implement message type enum
+- "It's ok to odd" rule
+
+== Init Message
+
+- Implementing the `Features` `BitField`
+- Implementing `InitMessage.fromBuffer()`
+- Implementing `InitMessage.toBuffer()`
