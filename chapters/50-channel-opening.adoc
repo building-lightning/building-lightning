@@ -1,8 +1,32 @@
 = Channel Opening
 
+== All the State Machines
+
+The Lightning Network is incredibly complex. Opening channels is the tip of the iceberg in terms of complexity. There is far too much to keep in our head. Not only does this introduce errors but it makes tasking, parallel coding, and testing difficult.  One of our primary goals is to be able to break down complex systems into bite-sized morsels. If we can construct a sequence of tasks that are used to compose a larger system we can write code faster, with fewer errors, and we can even parallelize the work. To help us manage this complexity we'll use state machines. 
+
+The Lightning Network is a perfect system for designing with state machines. It's has high complexity, but at any given time our channel is in some known state.  There are a finite number of events that can change the state.  Modeling the Lightning Network 
+
+
+=== Introduction to State Machines
+State machines are something that every coder uses whether its conscious or not. 
+
+- add formal definition
+- add simple example
+- add shortcomings of State Machines
+
+=== Introducing Hierarchical State Machines
+
+
+
+== Using the State Pattern
+
+- add definition of state pattern
+
+
 == Overview of Channels
 
 == Overview of the Opening Process
+
 
 == Interacting with a Wallet
 
