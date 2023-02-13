@@ -15,15 +15,14 @@
 - Installation
 - Running tests
 
-== First Coding Task: Implementing a Buffer/Stream Reader
+=== Working With Binary Data
 
-- Introduction to reading bits and bytes (endians, etc)
-- Distinction between Streams and Buffers
-- Implement 
-    - read byte
-    - read u16
-    - read u32
-    - read u64
+Since we'll be working with binary data we need to write some tools to easily and efficiently read binary data. This section will introduce Buffers.  We will then build off this knowledge to construct tooling to help us read and write data into Buffers.
+
+- Binary data refresher
+- Introduction Buffers
+- Creating a Buffer Writer
+- Creating a Buffer Reader 
 
 == BitField
 
