@@ -1,0 +1,59 @@
+= Binary Data
+
+This section is a quick refresher on binary data (the 1's and 0's that make computers work).
+
+Binary is a sequence of 1's and 0's representing on and off state respectively. Each one or zero is referred to as a bit. 
+
+Lets consider an an 8-bit example. We write the number with the prefix 0b to indicate that the value is a binary represented number (coincidentally, the node.js interpreter also understands this nomenclature). In this nomenclature, the most significant bit (the one that controls the largest power of two is on the left near the prefix).
+
+When all bits are 0's, the number is 0.
+
+0b00000000 = 0
+
+If we set the least significant bit (the one that controls the smallest power of two) we get 1.
+
+0b00000001 = 1
+
+We can set individual bits to achieve a number with power of two, such as 2, 4, 8, etc all the way up to the most significant bit (left most bit) that is 2**7 = 128.
+
+0b00000010 = 2
+0b00000100 = 4
+0b00001000 = 8
+0b00010000 = 16
+0b00100000 = 32
+0b01000000 = 64
+0b10000000 = 128
+
+We can then combine setting of the bits 0 through 7 to build any number between 0 and 255. For example, the number 129 has the most significant bit set and the least significant bit set.
+
+0b10000001 = 129
+
+If we set all of the bits we get the maximum value in that an 8-bit number can represent: 255.
+
+0b11111111 = 255
+
+Now that we understand a bit about bits, lets move on to bytes.
+
+== Bytes
+
+A byte is sequence of eight bits. 
+
+A byte is sometimes referred to as an octet. 
+
+As we saw, a single byte can be represented as an unsigned integer from the value 0 to 255.  
+
+When we combine multiple bytes into a byte array we can represent different sorts of data including numbers.
+
+One of the confusing aspects of working with bytes arrays is known as endianness. This refers to how we treat the ordering of bytes in the data.
+
+Consider a 16-bit number. This number will need to be represented by 2-bytes, each with 8 of the bits. One of the bytes will represent the upper 8 bits and one of the bytes will represent the lower 8 bits. When combined we are able to construct any number between 0 and 65535. 
+
+If we construct the 16-bit number using a 2-byte array we will need to define the ordering of those bytes. Consider the 2-byte array: [128, 2]. Does the first byte represent the lower byte or does it represent the upper byte? As a result, the array could be either 640 or 32770 depending on how we interpret the byte ordering. 
+
+The reality is that it is entirely up to the protocol that we are working with to determine how byte arrays are interpreted. We need to be familiar with both forms: little-endian and big-endian.
+
+In little-endian representation, the first byte represents the least significant value. The 2-byte array [128, 2] is thus 640: (128 << 0) + (2 << 8).
+
+In big-endian representation, the first byte represents the most significant value.  The 2-byte array [128, 2] is thus 32770: (128 << 8) + (2 << 0).
+
+Important Note: When discussing endianness, we are not changing the ordering of bits in each byte, only how we interpret the ordering of bytes. 
