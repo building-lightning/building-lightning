@@ -44,3 +44,9 @@ Since we'll be working with binary data we need to write some tools to easily an
 - Implementing the `Features` `BitField`
 - Implementing `InitMessage.fromBuffer()`
 - Implementing `InitMessage.toBuffer()`
+
+== Warning Message
+
+== Error Message
+
+

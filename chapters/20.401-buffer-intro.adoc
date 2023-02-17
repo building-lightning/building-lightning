@@ -1,0 +1,158 @@
+= Introduction to the Buffer type 
+:source-highlighter: highlightjs
+
+Every language includes a way to work with byte strings. We can thing of a byte string as a sequence of unsigned 8-bit integers (0 to 255). 
+
+Node.js is no different. It has a Buffer - https://nodejs.org/api/buffer.html type that holds a fixed-length sequence of bytes. The Buffer type has a number of built-in functions to help us read data from a Buffer.
+
+== Constructing Buffers
+
+You can create a Buffer by allocating a certain number of bytes and then writing information into the buffer at a specific index.
+
+[source typescript]
+----
+// construct a 2-byte buffer
+const buf = Buffer.alloc(2);
+
+// write a uint32
+buf.writeUInt16BE(256, 0);
+
+// output the buffer contents in hex
+console.log(buf.toString("hex"));
+----
+
+You can also construct a buffer from hex encoded string.
+
+[source typescript]
+----
+// Construct a buffer from hex
+const buf = Buffer.from("0100", "hex");
+
+// Output the buffer contents in hex
+console.log(buf.toString("hex"));
+----
+
+== Writing to Buffers
+
+The Buffer class has number of functions that allow you to read data to the Buffer at a specific index. This includes the ability to write a single byte
+
+[source typescript]
+----
+// Construct a buffer from hex
+const buf = Buffer.alloc(8);
+
+// Write a byte at the beginning
+buf.writeUint8(10, 0);
+console.log(buf);
+
+// Write a byte at the end
+buf.writeUint8(255, 7);
+console.log(buf);
+----
+
+If you attempt to write to the Buffer at an index that exceeds the Buffer's size it will throw an out-of-range exception.
+
+[source typescript]
+----
+// Construct a buffer
+buf = Buffer.alloc(8);
+
+// Attempt to write past the output
+buf.writeUint8(255, 8)
+----
+
+[source console]
+----
+Uncaught:
+RangeError [ERR_OUT_OF_RANGE]: The value of "offset" is out of range. It must be >= 0 and <= 7. Received 8
+    at __node_internal_captureLargerStackTrace (node:internal/errors:490:5)
+    at new NodeError (node:internal/errors:399:5)
+    at boundsError (node:internal/buffer:88:9)
+    at writeU_Int8 (node:internal/buffer:743:5)
+    at Buffer.writeUInt8 (node:internal/buffer:750:10) {
+  code: 'ERR_OUT_OF_RANGE'
+}
+----
+
+
+We can write other data such as 16-bit, 32-bit, and 64-bit signed and unsigned integers.
+
+[source typescript]
+----
+// Construct a buffer from
+buf = Buffer.alloc(16);
+
+// Write a single byte at the start
+buf.writeUint8(255, 0); 
+// <Buffer ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00>
+
+// Write a 16-bit big-endian number at index 1
+buf.writeUint16BE(4368, 1);
+// <Buffer ff 11 10 00 00 00 00 00 00 00 00 00 00 00 00 00>
+
+// Write a 32-bit big-endian number at index 3
+buf.writeUint32BE(572662304, 3);
+// <Buffer ff 11 11 22 22 22 20 00 00 00 00 00 00 00 00 00>
+
+// Write a 64-bit big endian number at index 7
+buf.writeBigUint64BE(3689348814741910320n, 7);
+// <Buffer ff 11 10 22 22 22 20 33 33 33 33 33 33 33 30 00>
+----
+
+We can also copy one buffer into another Buffer.
+
+[source typescript]
+----
+// Construct a second buffer to be written into our first buffer
+buf2 = Buffer.from([255]);
+
+// Copy the second buffer to the first buffer at index position 7
+buf2.copy(buf2, 15);
+// <Buffer ff 11 10 22 22 22 20 33 33 33 33 33 33 33 30 ff>
+----
+
+You should now be able to write data numbers and raw data into buffers. This knowledge will be the building blocks for subsequent exercises when we build a utility to help us encode binary data.
+
+== Reading from Buffers
+
+When it comes to deserializing data, we need to know how to read data from a Buffer. We will use complementary methods to those used to write data.
+
+For example, consider our buffer with data that we had previously written.
+
+[source typescript]
+----
+// Construct a buffer
+buf = Buffer.from("ff1110222222203333333333333330ff", "hex");
+
+// Read the first byte as a unsigned 8-bit integer
+buf.readUint8(0);
+// 255
+
+// Read a 16-bit big-endian number at index 1
+buf.readUint16BE(1);
+// 4368
+
+// Read a 32-bit big-endian number at index 3
+buf.readUint32BE(3);
+// 572662304 
+
+// Read a 64-bit big endian number at index 7
+buf.readBigUint64BE(7);
+// 3689348814741910320n
+----
+
+Finally, we can read read arbitrary bytes of data using the `slice` method. This method takes a start and end position as arguments. One caveat is that this creates a buffer pointing to the original one. If you modify the resulting buffer it will modify the original. 
+
+[source typescript]
+----
+// Construct a buffer
+buf = Buffer.from("ff1110222222203333333333333330ff", "hex");
+
+// Read the final byte
+buf.slice(15, 16)
+// <Buffer ff>
+----
+
+== Conclusion
+
+You should now be armed with an understanding of creating, writing, and reading to Buffers. This is a foundation for which we will build our protocol upon.
