@@ -1,0 +1,6 @@
+= Creating a BufferWriter
+
+You may have noticed when we using the Buffer's write methods that we needed to include the index. In our example, when we wrote several numbers of different byte lengths we needed to properly increment the index. Attempting to manually increment the write index may result in errors and certainly will result in more code.
+
+In order to make serializing complex data easier we will create a new class called a BufferWriter that will manage the index for us. This class will include similar methods to Buffer for writing various number types.
+
