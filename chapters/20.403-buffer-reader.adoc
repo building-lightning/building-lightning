@@ -1,0 +1,9 @@
+= First Coding Task: Implementing a Buffer/Stream Reader
+
+- Introduction to reading bits and bytes (endians, etc)
+- Distinction between Streams and Buffers
+- Implement
+  - read byte
+  - read u16
+  - read u32
+  - read u64
