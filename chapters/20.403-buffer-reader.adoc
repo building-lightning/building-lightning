@@ -1,9 +1,9 @@
-= First Coding Task: Implementing a Buffer/Stream Reader
+= BufferReader
 
-- Introduction to reading bits and bytes (endians, etc)
-- Distinction between Streams and Buffers
-- Implement
-  - read byte
-  - read u16
-  - read u32
-  - read u64
+- Introduction
+- Using the buffer reader over standard Buffer methods
+- create the readVarInt
+- create the readBigSize
+- create the readTUInt16
+- create the readTUInt32
+- create the readTUInt64
